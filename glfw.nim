@@ -11,6 +11,13 @@ type
   Window* = pointer
   CursorHandle* = pointer
 
+type
+  VkInstance* = pointer
+  VkPhysicalDevice* = pointer
+  VkAllocationCallbacks* = pointer
+  VkSurfaceKHR* = pointer
+  VkResult* = cint
+
 
 const
   VERSION_MAJOR* = 3
