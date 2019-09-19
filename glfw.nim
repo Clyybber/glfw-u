@@ -1,10 +1,16 @@
 
+
 const GlfwLib = when defined(windows):
                   "glfw3.dll"
                 elif defined(macosx):
                   "libglfw.3.dylib"
                 else:
                   "libglfw.so.3"
+
+type
+  Monitor* = pointer
+  Window* = pointer
+  Cursor* = pointer
 
 
 const
