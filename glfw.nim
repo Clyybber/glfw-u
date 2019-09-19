@@ -915,9 +915,9 @@ proc GetTime*(): cdouble {.cdecl, importc: "GetTime", dynlib: GlfwLib.}
 
 proc SetTime*(time: cdouble) {.cdecl, importc: "SetTime", dynlib: GlfwLib.}
 
-proc GetTimerValue*(): uint64_t {.cdecl, importc: "GetTimerValue", dynlib: GlfwLib.}
+proc GetTimerValue*(): uint64 {.cdecl, importc: "GetTimerValue", dynlib: GlfwLib.}
 
-proc GetTimerFrequency*(): uint64_t {.cdecl, importc: "GetTimerFrequency", dynlib: GlfwLib.}
+proc GetTimerFrequency*(): uint64 {.cdecl, importc: "GetTimerFrequency", dynlib: GlfwLib.}
 
 proc MakeContextCurrent*(window: ptr Window) {.cdecl, importc: "MakeContextCurrent", dynlib: GlfwLib.}
 
@@ -933,10 +933,10 @@ proc GetProcAddress*(procname: cstring): Glproc {.cdecl, importc: "GetProcAddres
 
 proc VulkanSupported*(): cint {.cdecl, importc: "VulkanSupported", dynlib: GlfwLib.}
 
-proc GetRequiredInstanceExtensions*(count: ptr uint32_t): cstringArray {.cdecl, importc: "GetRequiredInstanceExtensions", dynlib: GlfwLib.}
+proc GetRequiredInstanceExtensions*(count: ptr uint32): cstringArray {.cdecl, importc: "GetRequiredInstanceExtensions", dynlib: GlfwLib.}
 when defined(VK_VERSION_1_0):
   proc GetInstanceProcAddress*(instance: VkInstance; procname: cstring): Vkproc {.cdecl, importc: "GetInstanceProcAddress", dynlib: GlfwLib.}
-  proc GetPhysicalDevicePresentationSupport*(instance: VkInstance; device: VkPhysicalDevice; queuefamily: uint32_t): cint {.cdecl, importc: "GetPhysicalDevicePresentationSupport", dynlib: GlfwLib.}
+  proc GetPhysicalDevicePresentationSupport*(instance: VkInstance; device: VkPhysicalDevice; queuefamily: uint32): cint {.cdecl, importc: "GetPhysicalDevicePresentationSupport", dynlib: GlfwLib.}
   proc CreateWindowSurface*(instance: VkInstance; window: ptr Window; allocator: ptr VkAllocationCallbacks; surface: ptr VkSurfaceKHR): VkResult {.cdecl, importc: "CreateWindowSurface", dynlib: GlfwLib.}
 
 when defined(WINGDIAPI_DEFINED):
