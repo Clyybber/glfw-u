@@ -1,5 +1,4 @@
 
-
 const GlfwLib = when defined(windows):
                   "glfw3.dll"
                 elif defined(macosx):
@@ -10,7 +9,7 @@ const GlfwLib = when defined(windows):
 type
   Monitor* = pointer
   Window* = pointer
-  Cursor* = pointer
+  CursorHandle* = pointer
 
 
 const
@@ -858,13 +857,13 @@ proc GetCursorPos*(window: ptr Window; xpos: ptr cdouble; ypos: ptr cdouble) {.c
 
 proc SetCursorPos*(window: ptr Window; xpos: cdouble; ypos: cdouble) {.cdecl, importc: "SetCursorPos", dynlib: GlfwLib.}
 
-proc CreateCursor*(image: ptr Image; xhot: cint; yhot: cint): ptr Cursor {.cdecl, importc: "CreateCursor", dynlib: GlfwLib.}
+proc CreateCursor*(image: ptr Image; xhot: cint; yhot: cint): ptr CursorHandle {.cdecl, importc: "CreateCursor", dynlib: GlfwLib.}
 
-proc CreateStandardCursor*(shape: cint): ptr Cursor {.cdecl, importc: "CreateStandardCursor", dynlib: GlfwLib.}
+proc CreateStandardCursor*(shape: cint): ptr CursorHandle {.cdecl, importc: "CreateStandardCursor", dynlib: GlfwLib.}
 
-proc DestroyCursor*(cursor: ptr Cursor) {.cdecl, importc: "DestroyCursor", dynlib: GlfwLib.}
+proc DestroyCursor*(cursor: ptr CursorHandle) {.cdecl, importc: "DestroyCursor", dynlib: GlfwLib.}
 
-proc SetCursor*(window: ptr Window; cursor: ptr Cursor) {.cdecl, importc: "SetCursor", dynlib: GlfwLib.}
+proc SetCursor*(window: ptr Window; cursor: ptr CursorHandle) {.cdecl, importc: "SetCursor", dynlib: GlfwLib.}
 
 proc SetKeyCallback*(window: ptr Window; cbfun: Keyfun): Keyfun {.cdecl, importc: "SetKeyCallback", dynlib: GlfwLib.}
 
