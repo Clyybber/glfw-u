@@ -934,11 +934,8 @@ proc GetProcAddress*(procname: cstring): Glproc {.cdecl, importc: "GetProcAddres
 proc VulkanSupported*(): cint {.cdecl, importc: "VulkanSupported", dynlib: GlfwLib.}
 
 proc GetRequiredInstanceExtensions*(count: ptr uint32): cstringArray {.cdecl, importc: "GetRequiredInstanceExtensions", dynlib: GlfwLib.}
-when defined(VK_VERSION_1_0):
-  proc GetInstanceProcAddress*(instance: VkInstance; procname: cstring): Vkproc {.cdecl, importc: "GetInstanceProcAddress", dynlib: GlfwLib.}
-  proc GetPhysicalDevicePresentationSupport*(instance: VkInstance; device: VkPhysicalDevice; queuefamily: uint32): cint {.cdecl, importc: "GetPhysicalDevicePresentationSupport", dynlib: GlfwLib.}
-  proc CreateWindowSurface*(instance: VkInstance; window: ptr Window; allocator: ptr VkAllocationCallbacks; surface: ptr VkSurfaceKHR): VkResult {.cdecl, importc: "CreateWindowSurface", dynlib: GlfwLib.}
+proc GetInstanceProcAddress*(instance: VkInstance; procname: cstring): Vkproc {.cdecl, importc: "GetInstanceProcAddress", dynlib: GlfwLib.}
+proc GetPhysicalDevicePresentationSupport*(instance: VkInstance; device: VkPhysicalDevice; queuefamily: uint32): cint {.cdecl, importc: "GetPhysicalDevicePresentationSupport", dynlib: GlfwLib.}
+proc CreateWindowSurface*(instance: VkInstance; window: ptr Window; allocator: ptr VkAllocationCallbacks; surface: ptr VkSurfaceKHR): VkResult {.cdecl, importc: "CreateWindowSurface", dynlib: GlfwLib.}
 
-when defined(WINGDIAPI_DEFINED):
-when defined(CALLBACK_DEFINED):
 
