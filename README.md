@@ -1,2 +1,2 @@
-# glfw4nim
+# glfw!u
 (Yet another) glfw wrapper for nim
